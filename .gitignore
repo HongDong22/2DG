@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#빈 디렉토리 생성위한 keep파일 트래킹 제거
+!기말프로젝트/.keep
