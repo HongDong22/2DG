@@ -1,0 +1,97 @@
+import turtle as t
+
+
+t.shape ('turtle')
+
+def ㅎ ():
+    t.pendown()
+    t.setheading (0)
+    t.forward (100)
+    t.backward (50)
+    t.setheading(90)
+    t.forward (30)
+    t.penup ()
+    t.backward (45)
+    t.setheading (180)
+    t.pendown()
+    t.circle (32)
+    t.setheading (-90)
+    t.penup()
+
+def ㅗ():
+    t.pendown()
+    t.setheading (0)
+    t.forward (100)
+    t.backward (50)
+    t.setheading(90)
+    t.forward (30)
+    t.penup()
+    
+
+def ㅇ (size):
+    t.pendown()
+    t.circle(size)
+    t.penup()
+
+def ㄷ ():
+    t.pendown()
+    t.setheading (0)
+    t.forward (45)
+    t.backward (90)
+    t.setheading(-90)
+    t.forward(50)
+    t.setheading(0)
+    t.forward(90)
+    t.backward(45)
+    t.penup()
+
+def ㅕ():
+    t.pendown()
+    t.setheading(-90)
+    t.forward(45)
+    t.setheading(180)
+    t.forward(30)
+    t.backward(30)
+    t.setheading(-90)
+    t.forward(30)
+    t.setheading(180)
+    t.forward(30)
+    t.backward(30)
+    t.setheading(-90)
+    t.forward(45)
+    t.penup()
+
+def ㄴ():
+    t.pendown()
+    t.setheading(180)
+    t.forward(100)
+    t.setheading(90)
+    t.forward(45)
+    t.penup()
+
+
+t.penup()
+t.goto(-250,150)
+ㅎ()
+t.forward(100)
+t.goto(t.xcor()-50,t.ycor())
+ㅗ()
+t.goto(t.xcor(),t.ycor()-45)
+t.setheading(180)
+ㅇ(28)
+t.goto (0,150)
+ㄷ()
+t.goto(t.xcor()-50,t.ycor()-55)
+ㅗ()
+t.goto(t.xcor(),t.ycor()-45)
+t.setheading(180)
+ㅇ(30)
+t.goto(150,150)
+ㅎ()
+t.goto(t.xcor()+80,t.ycor()+30)
+ㅕ()
+t.penup()
+t.goto(t.xcor(),t.ycor()-60)
+ㄴ()
+t.goto(0,300)
+t.exitonclick()

@@ -1,0 +1,375 @@
+1
+
+로컬 저장소는 git이 관리하는 세 그루의 나무로 구성돼있다.
+
+ 작업 디렉토리, 인덱스, head 세가지가 있고 작업 디렉토리는 실제파일, 인덱스는 준비 영역의 역할 head는 최종 확정본을 나타   낸다.
+
+추가와 확정(commit)
+
+ 변경된 파일 git add <file name>으로 (인덱스)에 추가 가능하다. ///git의 기본 작업 흐름에서 첫 단계에 해당된다.
+
+ 변경 내용을 확정 하려면 git commit -m "확정본에 대한 설명" //변경된 파일이 head에 반영됐다.
+
+ 아직 원격 저장소엔 저장 x
+
+변경 내용 발행(push)
+
+ git push origin master //다른 가지에 발행 하려면 master를 원하는 가지이름으로 바꿔준다.
+
+ 만약 기존에 있던 원격 저장소 복제가 아니라면 원격 서버의 주소를 git에게 알려준다
+
+ git remote add origin <원격 서버 주소>
+
+가지(branch)치기
+
+ 안전하게 격리된 상태롤 무언가를 만들때 사용한다. 저장소를 새로만들면 master 가지가 만들어지고 다른 가지로 개발을 진   행하고 완료되면 master 가지로 돌아와 병합한다.
+
+ git checkout -b feature_x// feature_x라는 이름의 가지를 만들고 갈아탄다 
+
+ git checkout master //master 가지로 돌아 간다.
+
+ git branch -d feature_x// feature_x 가지를 삭제한다.
+
+ git push origin <가지이름> //새로 만든 가지를 원격 저장소로 전송하기전까지 다른사람이 접근할 수 없다.
+
+갱신과 경합(merge)
+
+ git pull//원격 저장소 변경 내용이 로컬 작업 디렉토리에 받아지고 병합된다.
+
+ git merge<가지 이름>// 다른 가지에 있는 변경 내용을 현재가지에 병합
+
+ git add <파일 이름>//git 은 자동으로 변경 내용 병합하기에 충돌이 일어날 때가 있다. 충돌 내용 수정한 후 아까의 파일을                               //병합할때 사용
+
+ git diff <원래 가지> <비교 가지> // 변경 내용을 병합하기 전에 어떻게 변했는지 비교 할 수있다.
+
+꼬리표(tag) 달기
+
+ git tag 1.0.0 1a2b3c4d //1.0.0은 꼬리표 1a2b3c4d는 꼬리표가 가리킬 확정본 식별자
+
+ git log 
+
+로컬 변경 내용 되돌리기 
+
+ git checkout -- <파일 이름> //로컬 변경 내용을 변경 전 상태(head)로 되돌려 준다.
+
+ 
+
+ 
+
+ 
+
+GitHub
+
+ git을 지원하는 서비스 중 가장 유명하다. 유명한 오픈 소스 라이버러리들이 많이 올라온다.
+
+사용법
+
+ git clone <URL>.git //원격 저장소 -> 로컬 컴퓨터 
+
+ git remote //git url을 설정할 때 주로 사용한다.
+
+     git remote add <저장소 이름> <URL>.git //저장소 URL 추가
+
+     git remote remove <저장소 이름> //저장소 URL 삭제
+
+     git remote set-url <저장소 이름> <URL>.git  // 저장소 URL 수정
+
+     git remote -v // 저장소 URL 확인
+
+ git status// 현재 저장소에 있는 내용과 로컬 컴퓨터에 있는 내용이 얼마나 다른지에 대해 알려주는 명령어
+
+ 
+
+ git add+ commit (수정 사항 확정)
+
+     git add <file name> // 수정된 파일을 저장소에 올릴 준비
+
+     git add . // 수정된 전체 파일을 저장소에 올릴 준ㅂ;
+
+     git commit -m "커밋 내용" //add 한 수정된 파일을 저장소에 올릴 것 확정
+
+     git init // 깃 저장소를 초기화한다.
+
+깃/깃허브 설정
+
+ git config --global user.name "your name"
+
+ git config --global user.email "your email"
+
+로컬 저장소 만들기
+
+  mkdir ~/Myproject  //Myproject 디렉토리 생성
+
+  cd ~/Myproject // Myproject 디렉토리 이동
+
+  git init // 현재 디렉터리 로컬 깃 저장소로 초기화
+
+  touch Readme.txt // Readme.txt 파일 생성
+
+로컬 저장소와 깃허브 저장소 연결하기
+
+  git remote add origin <URL> //url 저장소를 origin으로 지정한다.
+
+  git remote -v // 확인 절차
+
+ 
+
+2
+
+Python 3.8.5 (tags/v3.8.5:580fbb0, Jul 20 2020, 15:57:54) [MSC v.1924 64 bit (AMD64)] on win32
+
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> 2+3  //따로 변수를 선언하지 않고 사칙연산을 하여 결과값이 바로 나오는 과정이 편리하다
+
+5
+
+>>> 52-12
+
+40
+
+>>> 6*4
+
+24
+
+>>> 2092/2
+
+1046.0
+
+>>> 4//3
+
+1
+
+>>> pi= 3.14159265
+
+>>> pi * 2.5 ** 2
+
+19.6349540625
+
+>>> print(pi) //함수 사용 때 ;클론을 사용하지 않는게 편했다.
+
+3.14159265
+
+>>> r= 3
+
+>>> area= pi * r **2
+
+>>> print (area)
+
+28.27433385
+
+>>> name1 = "HongDong"
+
+>>> name2 = '동현'
+
+>>> print(name1)
+
+HongDong
+
+>>> print(name2)
+
+동현
+
+>>> type(name1)
+
+<class 'str'>  //간단히 변수 형식을 알 수 있어 편하다.
+
+>>> type(pi)
+
+<class 'float'>
+
+>>> type(r)
+
+<class 'int'>
+
+>>> 4.6 > 2
+
+True   //ture와 bool로 참 거짓을 판단 한다는 것을 알았다.
+
+>>> a= 2.3>2
+
+>>> print(a)
+
+True
+
+>>> type(a)
+
+<class 'bool'>
+
+>>> first= "Dong Hyun"
+
+>>> last = " Hong"
+
+>>> name = first + " " + last
+
+>>> name
+
+'Dong Hyun  Hong'
+
+>>> print (name)
+
+Dong Hyun  Hong
+
+>>> name * 3
+
+'Dong Hyun  HongDong Hyun  HongDong Hyun  Hong'
+
+>>> name [0]  //간편하게 배열의 일부분만 슬라이스 한다고 생각한다.
+
+'D'
+
+>>> name [4:8]
+
+' Hyu'
+
+>>> name [1:3]
+
+'on'
+
+>>> name [-2]  //슬라이스 할때 -의 표현이 뭔지 모르겠다.
+
+'n'
+
+>>> tiwce = [ 'momo' , 'sana' , 'zwi' , 'nahyun']
+
+>>> twice
+
+Traceback (most recent call last):
+
+  File "<stdin>", line 1, in <module>
+
+NameError: name 'twice' is not defined
+
+>>> tiwce
+
+['momo', 'sana', 'zwi', 'nahyun']
+
+>>> len(tiwce
+
+... )
+
+4
+
+>>> score { 'momo' : 80, 'zwi' : 85, 'sana' : 98}
+
+  File "<stdin>", line 1
+
+    score { 'momo' : 80, 'zwi' : 85, 'sana' : 98}
+
+          ^
+
+SyntaxError: invalid syntax
+
+>>> score = { 'momo' : 80, 'zwi' : 85, 'sana' :98}
+
+>>> type (score)
+
+<class 'dict'>
+
+>>> score ['momo']
+
+80
+
+>>> del ['momo']
+
+  File "<stdin>", line 1
+
+SyntaxError: cannot delete literal
+
+>>> del score ['momo']
+
+>>> score.keys()
+
+dict_keys(['zwi', 'sana'])
+
+>>> score.values()
+
+dict_values([85, 98])
+
+>>> 'zwi' in score
+
+True
+
+>>> 'momo' in score
+
+False
+
+>>> t1 =(1,2,3)
+
+>>> t2=(1, )
+
+>>> t4= 1,2,3,4
+
+>>> type (t4)
+
+<class 'tuple'>
+
+>>> t3= ()
+
+>>> t1+ t4
+
+(1, 2, 3, 1, 2, 3, 4)
+
+>>> t5=(1, 'a', "hong", (1,))
+
+>>> t5+t1
+
+(1, 'a', 'hong', (1,), 1, 2, 3)
+
+>>> s1={1,2,3}
+
+>>> type (s1)
+
+<class 'set'>
+
+>>> s1 {1,2,2,3}
+
+  File "<stdin>", line 1
+
+    s1 {1,2,2,3}
+
+       ^
+
+SyntaxError: invalid syntax
+
+>>> s1= {1,2,2,3}  //여러가지 방식으로 데이터의 집합을 표현하는게 새로웠다.
+
+>>> s1
+
+{1, 2, 3}
+
+>>> l1={1,1,1,1,2,2,2,2,3,3,3,3}
+
+>>> s2=set(l1)
+
+>>> s1|s2
+
+{1, 2, 3}
+
+>>> s1 +s2
+
+Traceback (most recent call last):
+
+  File "<stdin>", line 1, in <module>
+
+TypeError: unsupported operand type(s) for +: 'set' and 'set'
+
+>>> s1 & s2
+
+{1, 2, 3}
+
+>>> s1 - s2
+
+set()
+
+>>> s1.add (8)
+
+>>> s1
+
+{8, 1, 2, 3}
+
+>>> s2.remove (1)
+
+>>> s2
+
+{2, 3}
